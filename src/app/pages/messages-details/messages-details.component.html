@@ -1,0 +1,9 @@
+<p>
+  messages-details works!
+</p>
+<div *ngIf="message">
+  <h2>Selected  {{message.content}}</h2>
+  <p>Id {{message.id}} Author {{message.author}} Date {{message.date}}</p>
+
+  <button (click)="goBack()">Back to list</button>
+</div>

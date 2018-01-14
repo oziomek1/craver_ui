@@ -1,3 +1,13 @@
-<p>
-  messages works!
-</p>
+<section *ngIf="isLoading">
+  Loading...
+</section>
+<ul>
+  <li *ngFor="let message of messages | async">
+    <a href="#" [routerLink]="['/messages', message.id]">
+      {{message.content}}
+    </a>
+    <!--<a href="#" (click)="selectMessage(message)">-->
+      <!--{{message.content}}-->
+    <!--</a>-->
+  </li>
+</ul>

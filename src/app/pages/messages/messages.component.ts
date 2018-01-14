@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages/messages.service';
+import { Messages } from '../../services/messages/messages';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-messages',
@@ -9,20 +11,21 @@ import { MessagesService } from '../../services/messages/messages.service';
 
 export class MessagesComponent implements OnInit {
 
-  public values: any[];
+  messages: Messages[];
+  isLoading = true;
 
-  constructor(private messageService: MessagesService) {
+  constructor(private messageService: MessagesService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.messageService
-        .getAllMessages<any[]>()
-        .subscribe((data: any[]) => this.values = data,
-        error => () => {
-          console.log('Error while loading messages');
-        },
+    // this.messages = this.messageService.getAllMessages();
+    this.messageService.getAllMessages().subscribe(
+      data => this.messages = data,
+        error => () => console.log('Error while loading messages'),
         () => {
-          console.log('Success, messages loaded');
+          console.log('Success, messages loaded', this.messages);
+          this.isLoading = false;
         });
   }
 
