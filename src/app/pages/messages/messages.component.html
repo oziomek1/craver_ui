@@ -2,7 +2,7 @@
   Loading...
 </section>
 <ul>
-  <li *ngFor="let message of messages | async">
+  <li *ngFor="let message of messages">
     <a href="#" [routerLink]="['/messages', message.id]">
       {{message.content}}
     </a>
