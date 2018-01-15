@@ -14,6 +14,8 @@ export class MessagesService {
     this.actionUrl = this._configuration.ServerWithApiUrl + '/messages/';
   }
 
+
+
   public getAllMessages(): Observable<Messages[]> {
     let messages = this.httpClient.get(this.actionUrl, { headers: this.getHeaders()})
       .catch((error: any) => Observable.throw(error.json().error || 'Error'));
@@ -22,6 +24,20 @@ export class MessagesService {
 
   public getMessageById(id: number): Observable<Messages> {
     let message = this.httpClient.get(this.actionUrl + id, { headers: this.getHeaders()})
+      .catch((error: any) => Observable.throw(error.json().error || 'Error'));
+    return message;
+  }
+
+  public submitMessage(author: string, content: string): Observable<Messages> {
+    let details = {'author': author, 'content': content};
+    let message = this.httpClient.post(this.actionUrl, JSON.stringify(details), { headers: this.getHeaders()})
+      .catch((error: any) => Observable.throw(error.json().error || 'Error'));
+    return message;
+  }
+
+  public updateMessage(id: number, author: string, content: string): Observable<Messages> {
+    let details = {'author': author, 'content': content};
+    let message = this.httpClient.put(this.actionUrl + id, JSON.stringify(details), {headers: this.getHeaders()})
       .catch((error: any) => Observable.throw(error.json().error || 'Error'));
     return message;
   }

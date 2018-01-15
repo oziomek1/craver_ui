@@ -1,6 +1,26 @@
-<div class="title">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="appBackground">
+  <nav class="navbar sticky-top navbar-expand-md navbar-light">
+    <div class="container">
+    <a class="offset-1 navbar-brand" href="#">Craver <span class="sr-only">(current)</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <form class="form-inline offset-md-2 offset-sm-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search profiles" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ml-md-auto ml-sm-0">
+        <li class="nav-item">
+          <a class="nav-link logInButton" href="#">Log in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-secondary btn-round singUpButton" href="#">Sing up</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

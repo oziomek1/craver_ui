@@ -1,13 +1,25 @@
-<section *ngIf="isLoading">
-  Loading...
-</section>
-<ul>
-  <li *ngFor="let message of messages">
-    <a href="#" [routerLink]="['/messages', message.id]">
-      {{message.content}}
-    </a>
-    <!--<a href="#" (click)="selectMessage(message)">-->
-      <!--{{message.content}}-->
-    <!--</a>-->
-  </li>
-</ul>
+<div class="container messagesComponent">
+  <section *ngIf="isLoading">
+    Loading...
+  </section>
+  <div class="row justify-content-md-center">
+    <div class="inputMessage col-md-8 marginTop_15">
+      <form>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Profile name">
+          <textarea class="form-control" id="messageInputTextarea" rows="4" placeholder="Write something"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary float-right mr-4">Post</button>
+      </form>
+    </div>
+  </div>
+  <div class="row messagesList mt-2">
+  <ul>
+    <li *ngFor="let message of messages">
+      <a href="#" [routerLink]="['/messages', message.id]">
+        {{message.content}}
+      </a>
+    </li>
+  </ul>
+  </div>
+</div>
