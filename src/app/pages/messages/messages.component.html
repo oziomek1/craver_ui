@@ -3,32 +3,44 @@
     <section *ngIf="isLoading">
       Loading messages...
     </section>
-    <div class="row justify-content-md-center">
-      <div class="inputMessage col-md-8 marginTop_15">
-        <form>
-          <div class="form-group">
-            <input class="form-control" type="text" placeholder="Profile name">
-            <textarea class="form-control" id="messageInputTextarea" rows="4" placeholder="Write something"></textarea>
+    <div class="row marginTop_15">
+      <div *ngIf="!isLoadingProfiles" class="profileInfos col-md-2">
+        <div class="media-body">
+          <div class="row profileContent"  [routerLink]="['/profiles', currentProfile().id]">
+            <div class="text-center mt-4">
+              PROFILE: {{ currentProfile().profileName }}<hr/>
+              {{ currentProfile().firstName }} {{ currentProfile().lastName }}<hr/>
+            </div>
           </div>
-          <button type="submit" class="btn btn-outline-secondary float-right mr-4">Post</button>
+        </div>
+      </div>
+      <div class="inputMessage col-md-8 marginTop_15">
+        <form #messageForm="ngForm"
+          (ngSubmit)="onSubmit(messageForm)">
+          <div class="form-group">
+            <input class="form-control" name="messageAuthorInput" type="text"
+                   placeholder="Profile name" ngModel required>
+            <textarea class="form-control" name="messageInput" id="messageInputTextarea"
+                      rows="4" placeholder="Write something" ngModel required>
+            </textarea>
+          </div>
+          <button type="submit" [disabled]="!messageForm.form.valid" class="btn btn-outline-secondary float-right mr-4">Post</button>
         </form>
       </div>
     </div>
     <div class="row justify-content-md-center">
-      <div class="messagesList col-md-8">
-        <div *ngFor="let message of messages">
+      <div *ngIf="!isLoading" class="messagesList col-md-8">
+        <div *ngFor="let message of messages.reverse()">
           <div class="row ml-sm-3 mt-4">
-            <div class="media-left">
-              <a href="#" [routerLink]="['/messages', message.id]">
-              </a>
-            </div>
             <div class="media-body">
               <div class="row messageContent" [routerLink]="['/messages', message.id]">
                 {{message.content}}
               </div>
+              <button type="button" class="close" aria-label="Close" (click)="deleteMessage(message.id)">
+                <span aria-hidden="true">&times;</span>
+              </button>
               <div class="row messageInfo">
-                via  {{ message.author }} |
-                {{ convertDate(message.date) }}<hr/>
+                via  {{ message.author }} | {{ convertDate(message.date) }}<hr/>
               </div>
             </div>
           </div>

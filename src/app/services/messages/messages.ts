@@ -65,6 +65,8 @@ export class Messages {
   }
 
   static fromJson(json: any): Messages {
-    return new Messages(json.id, json.author, json.content, json.comments, json.links, new Date(json.date));
+    return new Messages(json.id, json.author,
+      json.content, json.comments, json.links,
+      new Date(json.date));
   }
 }

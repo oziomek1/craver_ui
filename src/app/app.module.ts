@@ -13,6 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { MessagesService } from './services/messages/messages.service';
 import { MessagesDetailsComponent } from './pages/messages-details/messages-details.component';
+import {ProfilesService} from './services/profiles/profiles.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MessagesDetailsComponent } from './pages/messages-details/messages-deta
     //   multi: true
     // },
     Configuration,
-    MessagesService
+    MessagesService,
+    ProfilesService
   ],
   bootstrap: [AppComponent]
 })
