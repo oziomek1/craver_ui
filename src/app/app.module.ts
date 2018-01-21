@@ -14,13 +14,12 @@ import { MessagesComponent } from './pages/messages/messages.component';
 import { MessagesService } from './services/messages/messages.service';
 import { MessagesDetailsComponent } from './pages/messages-details/messages-details.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     MessagesComponent,
-    MessagesDetailsComponent
+    MessagesDetailsComponent,
   ],
   imports: [
     BrowserModule,

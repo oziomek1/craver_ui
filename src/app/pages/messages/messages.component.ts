@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages/messages.service';
 import { Messages } from '../../services/messages/messages';
 import { ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-messages',
@@ -29,4 +30,9 @@ export class MessagesComponent implements OnInit {
         });
   }
 
+  private convertDate(date) {
+    let newDate = date.split('['); // 2018-01-21T00:40:43.557Z[UTC]
+    let fromNowDate = moment(newDate[0]).fromNow();
+    return fromNowDate.toString();
+  }
 }
