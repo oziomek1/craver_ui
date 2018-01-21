@@ -7,6 +7,7 @@ Project for studies.
 ##### (In the making)
 
 <img src="https://raw.githubusercontent.com/oziomek1/craver_ui/master/screenshots/screen1.jpg">
+<img src="https://raw.githubusercontent.com/oziomek1/craver_ui/master/screenshots/screen2.jpg">
 
 
 
