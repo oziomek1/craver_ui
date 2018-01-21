@@ -1,5 +1,21 @@
 # CraverUi
 
+Angular5 based front-end part of "craver" project. App works endpoints from "craver"
+
+Project for studies.
+
+##### (In the making)
+
+<img src="https://raw.githubusercontent.com/oziomek1/craver_ui/master/screenshots/screen1.jpg">
+
+
+
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
 
 ## Development server
