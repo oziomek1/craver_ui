@@ -44,7 +44,7 @@ export class ProfilesService {
 
   private getHeaders() {
     const headers = new HttpHeaders();
-    // headers.append('Accept', 'application/json');
+    headers.append('Accept', 'application/json');
     headers.append('Accept', 'application/xml');
     headers.append('Accept', 'text/xml');
     headers.append('Content-Type', 'application/json');
